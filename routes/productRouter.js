@@ -4,9 +4,13 @@ const productController = require("../controllers/productController");
 
 
 
+router.route("/")
+    .get(productController.getProducts)
+    .post(productController.createProduct);
 
-router.get("/", productController.getProducts())
-
-router.post("/", productController.createProduct())
+router.route("/:productId")
+   .get(productController.getProductById)
+   .put(productController.updateProduct)
+   .delete(productController.deleteProduct);
 
 module.exports = router;

@@ -1,0 +1,41 @@
+<style>
+    body {
+        display: flex;
+        width: 100vw;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+    }
+
+    form input {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+    }
+
+    form button {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #2a72d7;
+        color: white;
+        border: 0px;
+    }
+</style>
+
+<body>
+    <form action="/productos/success" method="post">
+        <input type="text" name="name" placeholder="Nombre del producto">
+        <input type="text" name="description" placeholder="Descripcion del producto">
+        <input type="number" name="stock" placeholder="Stock del producto">
+        <input type="number" name="price" placeholder="Precio del producto">
+        <button type="submit">Crear</button>
+    </form>
+</body>

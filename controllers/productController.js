@@ -1,16 +1,63 @@
 const path = require('path');
-const dataPath = path.join(__dirname, "../model/users.json");
-const CRUD = require('../controllers/CRUD');
+const dataPath = path.join(__dirname, "../model/products.json");
+const CRUD = require('./CRUD');
 
 const getProducts = (req, res) => {
     res.json(CRUD.read(dataPath));
 }
 
+const getProductById = (req, res) => {
+    let productId = req.params.productId;
+    let product = CRUD.read(dataPath).find(p => p.id === productId);
+    res.json(product);
+}
+
+const setProductId = () => {
+    const products = CRUD.read(dataPath);
+    let maxId = Math.max(...products.map(p => (p.id.split(""))[1]));
+    if (maxId === -Infinity){
+        maxId = 0;
+    }
+    let newProductId = maxId + 1;
+    newProductId = "P" + newProductId;
+    return newProductId;
+}
+
 const createProduct = (req, res) => {
-    CRUD.create(req.body, dataPath);
+    let newProduct = 
+        {
+            id: setProductId(),
+            name: req.body.name,
+            description: req.body.description,
+            stock: req.body.stock,
+            price: req.body.price
+        }
+    
+    CRUD.create(newProduct, dataPath);
+    res.status(201).json({ message: "Product created successfully" });
+}
+
+const updateProduct = (req, res) => {
+    let productId = req.params.productId;
+    let product = CRUD.read(dataPath).find(p => p.id === productId);
+    product.name = req.body.newName;
+    product.description = req.body.newDescription;
+    product.stock = req.body.newStock;
+    product.price = req.body.newPrice;
+    CRUD.update(product, dataPath);
+    res.status(200).json({ message: "Product updated successfully" });
+}
+
+const deleteProduct = (req, res) => {
+    let productId = req.params.productId;
+    CRUD.deleteObject(productId, dataPath);
+    res.status(200).json({ message: "Product deleted successfully" });
 }
 
 module.exports = {
     getProducts,
-    createProduct
+    createProduct,
+    getProductById,
+    updateProduct,
+    deleteProduct
 }
