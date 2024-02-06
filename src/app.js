@@ -14,7 +14,10 @@ app.get('/', (req, res) => {
 })
 
 const productsRouter = require("../routes/productRouter");
-app.use("/productos", productsRouter)
+app.use("/productos", productsRouter);
+
+const userRouter = require("../routes/userRouter");
+app.use("/usuarios", userRouter);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

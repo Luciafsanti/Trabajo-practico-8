@@ -12,12 +12,13 @@ const read = (dataPath) => {
 
 const update = (objectUpdate, dataPath) => {
     let data = read(dataPath);
-    if (data.filter(object => object.id === objectUpdate.id)) {
+    if (data.some(object => object.id === objectUpdate.id)) {
         data.forEach(object => {
             if (object.id === objectUpdate.id) {
                 data[data.indexOf(object)] = objectUpdate;
                 console.log(object.id, objectUpdate.id);
                 fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
+                return;
             }
         })
     } else {
@@ -29,15 +30,15 @@ const update = (objectUpdate, dataPath) => {
 
 const deleteObject = (idDelete, dataPath) => {
     let data = read(dataPath);
-    if (data.filter(object => object.id === idDelete.id)) {
-        data.splice(data.indexOf(idDelete), 1);
-        fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
+    if (data.some(object => object.id === idDelete)) {
+      data.splice(data.findIndex(object => object.id === idDelete), 1);
+      fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
     }
     else {
-        console.log(`ID: ${idDelete.id} no existe`);
-        return;
+      console.log(`ID: ${idDelete} no existe`);
+      return;
     }
-}
+  }
 
 module.exports = {
     create,

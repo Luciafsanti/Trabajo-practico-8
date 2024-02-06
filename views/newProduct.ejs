@@ -7,12 +7,28 @@
     }
 
     form {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-areas: 
+        "n d b"
+        "p s b"
+        ;
         align-items: center;
-        width: 300px;
+        width: 500px;
+        gap: 1rem;
     }
 
+    .name{
+        grid-area: n;
+    }
+    .description{
+        grid-area: d;
+    }
+    .price{
+        grid-area: p;
+    }
+    .stock{
+        grid-area: s;
+    }
     form input {
         width: 100%;
         padding: 10px;
@@ -27,15 +43,28 @@
         background-color: #2a72d7;
         color: white;
         border: 0px;
+        grid-area: b;
+    }
+
+    form button:hover {
+        background-color: #2a72d7b3;
+    }
+    .productos {
+        width: 478px;
     }
 </style>
 
 <body>
-    <form action="/productos/success" method="post">
-        <input type="text" name="name" placeholder="Nombre del producto">
-        <input type="text" name="description" placeholder="Descripcion del producto">
-        <input type="number" name="stock" placeholder="Stock del producto">
-        <input type="number" name="price" placeholder="Precio del producto">
+
+    <form action="/productos" method="post">
+        <input type="text" name="name" placeholder="Nombre del producto" class="name">
+        <input type="text" name="description" placeholder="Descripcion del producto" class="description">
+        <input type="number" name="stock" placeholder="Stock del producto" class="stock">
+        <input type="number" name="price" placeholder="Precio del producto" class="price">
         <button type="submit">Crear</button>
     </form>
+
+    <div class="productos">
+        <%= productos %>
+    </div>
 </body>

@@ -11,48 +11,27 @@
     "name": "Producto 2",
     "description": "descripcion 2",
     "stock": "5",
-    "price": "aaaaaaa"
+    "price": "76"
   },
   {
     "id": "P3",
     "name": "Producto 2",
     "description": "descripcion 2",
     "stock": "5",
-    "price": "aaaaaaa"
+    "price": "64"
   },
   {
     "id": "P4",
     "name": "Producto 2",
     "description": "descripcion 2",
     "stock": "5",
-    "price": "aaaaaaa"
+    "price": "89"
   },
   {
     "id": "P5",
     "name": "Producto 2",
     "description": "descripcion 2",
     "stock": "5",
-    "price": "aaaaaaa"
-  },
-  {
-    "id": "P6",
-    "name": "Producto 6",
-    "description": "descripcion 6",
-    "stock": "3",
-    "price": "80"
-  },
-  {
-    "id": "P7",
-    "name": "Producto 2",
-    "description": "descripcion 2",
-    "stock": "5",
-    "price": "aaaaaaa"
-  },
-  {
-    "id": "P8",
-    "name": "Producto 8",
-    "description": "descripcion 8",
-    "stock": "26",
-    "price": "1300"
+    "price": "43"
   }
 ]
