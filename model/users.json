@@ -1,0 +1,22 @@
+[
+  {
+    "id": "U1",
+    "username": "Usuario 1",
+    "password": "$2b$10$4GYMixmk.BnF6Terivy5Ie0UmT4T7h/0r3l1iNSRSmY140PnA/Hcm"
+  },
+  {
+    "id": "U2",
+    "username": "Usuario 2",
+    "password": "$2b$10$yNJIHe3Wq1GPgUFlfu1QluXiDqPzbxgkeJCjMDqnxjofs3/2OgylO"
+  },
+  {
+    "id": "U3",
+    "username": "Usuario 3",
+    "password": "$2b$10$xxSsUCAzTsZH6ZI5T2Ze1eYaGzY1rpqDMeTbAlS6tz8L1V8vOvOa6"
+  },
+  {
+    "id": "U4",
+    "username": "Usuario validate",
+    "password": "$2b$10$V4KW7nZ.pZ5c5bP30lMy7ersPoWVZe/QZri6e8advF4b2MFhDVhXG"
+  }
+]
