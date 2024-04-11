@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const userController = require("../controllers/userController");
+const userController = require("../controllers/user.controllers");
 
 
 
 router.route("/")
-    .get(userController.getUsers)
-    .post(userController.validateUser, userController.userValidationRules, userController.createUser);
+    .get(userController.getAllUsers)
+    .post(/*userController.validateUser, userController.userValidationRules, */userController.createUser);
 
 router.route("/:userId")
-   .get(userController.userExists, userController.getUserById)
-   .put(userController.userExists, userController.updateUser)
-   .delete(userController.userExists, userController.deleteUser);
+   .get(userController.getUserById)
+   .put(userController.updateUser)
+   .delete(userController.deleteUser);
 
 module.exports = router;
